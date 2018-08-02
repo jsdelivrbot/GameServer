@@ -1,10 +1,9 @@
 var express = require("express")();
 var app = express.createServer(express.logger());
-var io = require("socket.io")(server);
+var io = require("socket.io").listen(app);
 var randomRoomCreator = require("./random_room_id");
 var rooms = [];
 var players = [];
-
 
 io.configure(function () {  
   io.set("transports", ["xhr-polling"]); 
