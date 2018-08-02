@@ -7,10 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
 	"start": "node index.js"
   },
+  "engines": {
+    "node": "8.9.1"
+  },
   "author": "Serhat Merak",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
     "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MerakSerhat/GameServer"
   }
 }
