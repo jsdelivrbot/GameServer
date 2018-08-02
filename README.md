@@ -1,1 +1,1 @@
-# GameServer
+# Server

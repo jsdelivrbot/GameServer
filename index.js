@@ -1,22 +1,14 @@
-var express = require("express")();
-var app = express.createServer(express.logger());
-var io = require("socket.io").listen(app);
+var app = require("express")();
+var server = require("http").Server("app");
+var io = require("socket.io")(server);
 var randomRoomCreator = require("./random_room_id");
 var rooms = [];
 var players = [];
 
-io.configure(function () {  
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
 
-var port = process.env.PORT || 5000;
-
-app.listen(port, function() {  
-  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
-});
-
-app.get('/', routes.index);
+server.listen(8080, function(){
+    console.log("Server is running now")
+})
 
 io.on("connection" , function(socket){
     socket.emit("socketID",{id : socket.id});
@@ -152,6 +144,4 @@ function RoomIsFull(room){
     if(playerLength == 2) return true;
     else return false;
 }
-
-
 
