@@ -12,9 +12,7 @@ server.listen(8080, function(){
 
 io.on("connection" , function(socket){
     socket.emit("socketID",{id : socket.id});
-    console.log("Player connected id:" + socket.id);
-        PlayerleftFromRoom(socket);
-    })
+    console.log("Player connected id:" + socket.id);    
 
     socket.on("disconnect", function(){
         console.log("Player disconnected id:" + socket.id);
