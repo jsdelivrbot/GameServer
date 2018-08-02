@@ -1,3 +1,6 @@
+var app = require("express")();
+var server = require("http").Server("app");
+var io = require("socket.io")(server);
 var randomRoomCreator = require("./random_room_id");
 var rooms = [];
 var players = [];
